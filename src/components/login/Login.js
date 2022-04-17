@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { Spinner } from "react-bootstrap";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  console.log(email, password);
+
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+  const [signInWithEmailAndPassword, user1, loading1, error1] =
+    useSignInWithEmailAndPassword(auth);
+
+  const handleLogin = () => {
+    signInWithEmailAndPassword(email, password);
+  };
 
   const handleGoogleSignIn = () => {
     console.log("clicked");
@@ -20,24 +35,19 @@ const Login = () => {
       <h1 className="my-5">Please Login Here.</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
-          </label>
+          <label className="form-label">Email address</label>
           <input
+            onBlur={(e) => setEmail(e.target.value)}
             type="email"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
-            Password
-          </label>
+          <label className="form-label">Password</label>
           <input
+            onBlur={(e) => setPassword(e.target.value)}
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
           />
         </div>
         <p>
@@ -46,7 +56,21 @@ const Login = () => {
             Create an account.
           </Link>
         </p>
-        <button type="submit" className="btn btn-dark d-block mx-auto my-1">
+
+        {error || error1 ? (
+          <p className="text-danger">
+            {error?.message}
+            {error1?.message}
+          </p>
+        ) : (
+          ""
+        )}
+        {loading || loading1 ? <Spinner /> : ""}
+        <button
+          onClick={handleLogin}
+          type="submit"
+          className="btn btn-dark d-block mx-auto my-1"
+        >
           Login
         </button>
       </form>
