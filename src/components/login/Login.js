@@ -17,7 +17,6 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user1, loading1, error1] =
     useSignInWithEmailAndPassword(auth);
-  console.log(loading1);
 
   const handleLogin = () => {
     signInWithEmailAndPassword(email, password);
