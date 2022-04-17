@@ -6,7 +6,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { Spinner } from "react-bootstrap";
+import Spineer from "../spinner/Spineer";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -19,7 +19,6 @@ const SignUp = () => {
 
   const handleSignUp = () => {
     createUserWithEmailAndPassword(email, password);
-    console.log(user1);
   };
 
   const handleGoogleSignIn = () => {
@@ -55,6 +54,7 @@ const SignUp = () => {
           />
         </div>
         <p>
+          Have an account?{" "}
           <Link style={{ textDecoration: "none" }} to="/login">
             Back to login page.
           </Link>
@@ -67,7 +67,7 @@ const SignUp = () => {
         ) : (
           ""
         )}
-        {loading || loading1 ? <Spinner /> : ""}
+        {loading || loading1 ? <Spineer /> : ""}
         <button
           onClick={handleSignUp}
           type="submit"

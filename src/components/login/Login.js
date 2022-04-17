@@ -6,7 +6,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { Spinner } from "react-bootstrap";
+import Spineer from "../spinner/Spineer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +17,7 @@ const Login = () => {
 
   const [signInWithEmailAndPassword, user1, loading1, error1] =
     useSignInWithEmailAndPassword(auth);
+  console.log(loading1);
 
   const handleLogin = () => {
     signInWithEmailAndPassword(email, password);
@@ -65,7 +66,7 @@ const Login = () => {
         ) : (
           ""
         )}
-        {loading || loading1 ? <Spinner /> : ""}
+        {loading || loading1 ? <Spineer /> : ""}
         <button
           onClick={handleLogin}
           type="submit"
