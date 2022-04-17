@@ -1,14 +1,19 @@
 import React from "react";
 import { Card, CardGroup } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import s1 from "../../images/services/service-1.jpg";
 import s2 from "../../images/services/service-2.jpg";
 import s3 from "../../images/services/service-3.jpg";
 
 const Services = () => {
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    navigate("/checkout");
+  };
   return (
     <div>
       <h1 className="bg-dark my-5 py-3" style={{ color: "white" }}>
-        Our Services
+        Services
       </h1>
       <CardGroup>
         <Card>
@@ -23,7 +28,9 @@ const Services = () => {
             <Card.Text>Price: $100</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <button className="btn btn-dark w-100">CheckOut</button>
+            <button onClick={handleCheckout} className="btn btn-dark w-100">
+              CheckOut
+            </button>
           </Card.Footer>
         </Card>
 
@@ -38,7 +45,9 @@ const Services = () => {
             <Card.Text>Price: $100</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <button className="btn btn-dark w-100">CheckOut</button>
+            <button onClick={handleCheckout} className="btn btn-dark w-100">
+              CheckOut
+            </button>
           </Card.Footer>
         </Card>
         <Card>
@@ -53,7 +62,9 @@ const Services = () => {
             <Card.Text>Price: $100</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <button className="btn btn-dark w-100">CheckOut</button>
+            <button onClick={handleCheckout} className="btn btn-dark w-100">
+              CheckOut
+            </button>
           </Card.Footer>
         </Card>
         <Card>
@@ -68,7 +79,9 @@ const Services = () => {
             <Card.Text>Price: $100</Card.Text>
           </Card.Body>
           <Card.Footer>
-            <button className="btn btn-dark w-100">CheckOut</button>
+            <button onClick={handleCheckout} className="btn btn-dark w-100">
+              CheckOut
+            </button>
           </Card.Footer>
         </Card>
       </CardGroup>
