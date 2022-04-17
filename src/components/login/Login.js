@@ -11,7 +11,6 @@ import Spineer from "../spinner/Spineer";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  console.log(email, password);
 
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
@@ -23,7 +22,6 @@ const Login = () => {
   };
 
   const handleGoogleSignIn = () => {
-    console.log("clicked");
     signInWithGoogle();
   };
 
