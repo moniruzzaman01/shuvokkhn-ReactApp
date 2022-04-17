@@ -3,6 +3,11 @@
   margin: 0 auto;
   text-align: left;
 }
+.separator {
+  height: 1px;
+  width: 100%;
+  background-color: #000;
+}
 @media screen and (max-width: 767px) {
   .signup-container {
     width: 75%;
