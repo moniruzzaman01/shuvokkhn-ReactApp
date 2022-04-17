@@ -12,9 +12,7 @@ const Services = () => {
   };
   return (
     <div>
-      <h1 className="bg-dark my-5 py-3" style={{ color: "white" }}>
-        Services
-      </h1>
+      <h1 className=" mt-5 mb-2 py-3">Services</h1>
       <CardGroup>
         <Card>
           <Card.Img variant="top" src={s1} />
