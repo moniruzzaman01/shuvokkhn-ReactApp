@@ -33,15 +33,21 @@ const Navbaar = () => {
           <Nav>
             {user ? (
               <p
+                style={{ color: "#fff", letterSpacing: "1px" }}
                 onClick={handleLogOut}
-                style={{
-                  color: "tomato",
-                  marginBottom: "-1px",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                }}
               >
-                LogOut
+                {user?.displayName}
+                <span
+                  style={{
+                    display: "block",
+                    color: "tomato",
+                    marginBottom: "-15px",
+                    cursor: "pointer",
+                    fontWeight: "bold",
+                  }}
+                >
+                  LogOut
+                </span>
               </p>
             ) : (
               <Nav.Link as={Link} to="/login">
