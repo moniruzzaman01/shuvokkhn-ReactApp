@@ -10,7 +10,7 @@ const Navbaar = () => {
   const handleLogOut = () => {
     signOut(auth);
   };
-  console.log(user?.displayName);
+  // console.log(user?.displayName);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
