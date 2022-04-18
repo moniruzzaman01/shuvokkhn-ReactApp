@@ -15,32 +15,16 @@ const Services = () => {
       <h1 className=" mt-5 mb-2 py-3">Services</h1>
       <CardGroup>
         <Card>
-          <Card.Img variant="top" src={s1} />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-            <Card.Text>
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-            <Card.Text>Price: $100</Card.Text>
-          </Card.Body>
-          <Card.Footer>
-            <button onClick={handleCheckout} className="btn btn-dark w-100">
-              CheckOut
-            </button>
-          </Card.Footer>
-        </Card>
-
-        <Card>
           <Card.Img variant="top" src={s2} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Anneversary Package</Card.Title>
             <Card.Text>
               This card has supporting text below as a natural lead-in to
               additional content.{" "}
             </Card.Text>
-            <Card.Text>Price: $100</Card.Text>
+            <Card.Text>
+              Price: <b>$100</b>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
             <button onClick={handleCheckout} className="btn btn-dark w-100">
@@ -51,13 +35,15 @@ const Services = () => {
         <Card>
           <Card.Img variant="top" src={s1} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>Wedding Package</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This content is a little bit
               longer.
             </Card.Text>
-            <Card.Text>Price: $100</Card.Text>
+            <Card.Text>
+              Price: <b>$100</b>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
             <button onClick={handleCheckout} className="btn btn-dark w-100">
@@ -68,13 +54,15 @@ const Services = () => {
         <Card>
           <Card.Img variant="top" src={s3} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>BirthDay Package</Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content
               than the first to show that equal height action.
             </Card.Text>
-            <Card.Text>Price: $100</Card.Text>
+            <Card.Text>
+              Price: <b>$100</b>
+            </Card.Text>
           </Card.Body>
           <Card.Footer>
             <button onClick={handleCheckout} className="btn btn-dark w-100">

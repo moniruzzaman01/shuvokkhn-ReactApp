@@ -8,6 +8,8 @@ import CheckOut from "./components/check-out/CheckOut";
 import Login from "./components/login/Login";
 import SignUp from "./components/signup/SignUp";
 import RequireAuth from "./components/require-auth/RequireAuth";
+import About from "./components/about/About";
+import Blogs from "./components/blogs/Blogs";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/home" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/blogs" element={<Blogs />}></Route>
         <Route
           path="/checkout"
           element={
