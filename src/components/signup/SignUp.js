@@ -14,12 +14,12 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const [authUser, authLoading, authError] = useAuthState(auth);
+  const [authUser, authLoading] = useAuthState(auth);
   const from = location?.state?.from?.pathname || "/";
 
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, loading, error] = useSignInWithGoogle(auth);
 
-  const [createUserWithEmailAndPassword, user1, loading1, error1] =
+  const [createUserWithEmailAndPassword, loading1, error1] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const handleSignUp = () => {

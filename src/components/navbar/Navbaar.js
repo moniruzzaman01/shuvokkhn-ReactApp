@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const Navbaar = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const handleLogOut = () => {
     signOut(auth);
   };
@@ -14,7 +14,15 @@ const Navbaar = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="home">
-          SHUVOKKHON
+          SHUVOKKHON{" "}
+          <sub
+            style={{
+              fontSize: "12px",
+              color: "gray",
+            }}
+          >
+            capture special moments
+          </sub>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
