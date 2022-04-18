@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import {
+  useAuthState,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -11,6 +12,10 @@ import Spineer from "../spinner/Spineer";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [authUser, authLoading, authError] = useAuthState(auth);
+  const from = location?.state?.from?.pathname || "/";
 
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
@@ -28,6 +33,12 @@ const Login = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
   };
+  if (authLoading) {
+    return <Spineer></Spineer>;
+  }
+  if (authUser) {
+    navigate(from, { replace: true });
+  }
   return (
     <div className="login-container">
       <h1 className="my-5">Please Login Here.</h1>

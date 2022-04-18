@@ -7,7 +7,7 @@ const Spineer = () => {
       style={{
         display: "flex",
         position: "absolute",
-        left: "50%",
+        left: "47%",
         top: "10%",
         justifyContent: "center",
         alignItems: "center",
