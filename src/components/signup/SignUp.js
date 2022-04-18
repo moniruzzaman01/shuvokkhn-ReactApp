@@ -20,7 +20,7 @@ const SignUp = () => {
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
   const [createUserWithEmailAndPassword, user1, loading1, error1] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const handleSignUp = () => {
     createUserWithEmailAndPassword(email, password);
