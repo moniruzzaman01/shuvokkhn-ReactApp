@@ -27,7 +27,6 @@ const SignUp = () => {
   };
 
   const handleGoogleSignIn = () => {
-    console.log("clicked");
     signInWithGoogle();
   };
 
