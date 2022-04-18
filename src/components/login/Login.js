@@ -9,6 +9,8 @@ import {
 import auth from "../../firebase.init";
 import Spineer from "../spinner/Spineer";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +40,7 @@ const Login = () => {
   const handleResetPassword = () => {
     sendPasswordResetEmail(auth, email)
       .then(() => {
-        alert("reset email sended");
+        toast("reset email sended");
       })
       .catch((error) => {
         setResetError(error);
@@ -115,6 +117,7 @@ const Login = () => {
       >
         googleSignIn
       </button>
+      <ToastContainer />
     </div>
   );
 };
