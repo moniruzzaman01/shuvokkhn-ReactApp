@@ -17,9 +17,9 @@ const SignUp = () => {
   const [authUser, authLoading] = useAuthState(auth);
   const from = location?.state?.from?.pathname || "/";
 
-  const [signInWithGoogle, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-  const [createUserWithEmailAndPassword, loading1, error1] =
+  const [createUserWithEmailAndPassword, user1, loading1, error1] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
   const handleSignUp = () => {
@@ -53,6 +53,7 @@ const SignUp = () => {
             onBlur={(e) => setEmail(e.target.value)}
             type="email"
             className="form-control"
+            required
           />
         </div>
         <div className="mb-3">
@@ -61,6 +62,7 @@ const SignUp = () => {
             onBlur={(e) => setPassword(e.target.value)}
             type="password"
             className="form-control"
+            required
           />
         </div>
         <p>

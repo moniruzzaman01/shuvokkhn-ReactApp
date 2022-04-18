@@ -8,18 +8,20 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Spineer from "../spinner/Spineer";
+import { sendPasswordResetEmail } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [resetError, setResetError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const [authUser, authLoading] = useAuthState(auth);
   const from = location?.state?.from?.pathname || "/";
 
-  const [signInWithGoogle, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
-  const [signInWithEmailAndPassword, loading1, error1] =
+  const [signInWithEmailAndPassword, user1, loading1, error1] =
     useSignInWithEmailAndPassword(auth);
 
   const handleLogin = () => {
@@ -32,6 +34,15 @@ const Login = () => {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
+  };
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("reset email sended");
+      })
+      .catch((error) => {
+        setResetError(error);
+      });
   };
   if (authLoading) {
     return <Spineer></Spineer>;
@@ -65,11 +76,21 @@ const Login = () => {
             Create an account.
           </Link>
         </p>
+        <p
+          onClick={handleResetPassword}
+          style={{
+            color: "rgb(50,120,255)",
+            cursor: "pointer",
+          }}
+        >
+          Reset password
+        </p>
 
-        {error || error1 ? (
+        {error || error1 || resetError ? (
           <p className="text-danger">
             {error?.message}
             {error1?.message}
+            {resetError?.message}
           </p>
         ) : (
           ""
